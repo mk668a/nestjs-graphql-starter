@@ -15,10 +15,10 @@ export class Users {
   id: string
 
   @Field()
-  firstName: string
+  first_name: string
 
   @Field()
-  lastName: string
+  last_name: string
 
   @Field({ nullable: true })
   gender?: string
@@ -27,8 +27,8 @@ export class Users {
   status: Status
 
   @Field()
-  createdAt: Date
+  created_at: Date
 
   @Field()
-  updatedAt: Date
+  updated_at: Date
 }

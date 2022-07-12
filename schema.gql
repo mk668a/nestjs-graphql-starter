@@ -4,12 +4,12 @@
 
 type Users {
   id: ID!
-  firstName: String!
-  lastName: String!
+  first_name: String!
+  last_name: String!
   gender: String
   status: Status!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  created_at: DateTime!
+  updated_at: DateTime!
 }
 
 enum Status {
@@ -23,10 +23,12 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Query {
-  users: [Users!]
-  user(id: ID!): Users
+  users(id: Int!, first_name: String, last_name: String, gender: String): [Users!]
+  user(id: Int!): Users
 }
 
 type Mutation {
-  createUser(firstName: String!, lastName: String!): Users
+  createUser(first_name: String, last_name: String, gender: String): Users
+  updateUser(id: Int!, first_name: String, last_name: String, gender: String): Users
+  removeUser(id: Int!): Users
 }

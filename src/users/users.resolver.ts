@@ -1,23 +1,53 @@
-import { Args, ID, Mutation, Query, Resolver } from '@nestjs/graphql'
-import { Users } from './users.models'
+import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql'
 import { UsersService } from './users.service'
+import { Users } from 'src/models/users.models'
 
-@Resolver((of) => Users)
+@Resolver(() => Users)
 export class UsersResolver {
-  constructor(private usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) {}
 
-  @Query(() => [Users], { nullable: true })
-  users() {
-    return this.usersService.findAll()
+  @Mutation(() => Users, { nullable: true })
+  createUser(
+    @Args('first_name', { nullable: true }) first_name?: string,
+    @Args('last_name', { nullable: true }) last_name?: string,
+    @Args('gender', { nullable: true }) gender?: string
+  ) {
+    const data = { first_name, last_name, gender, updated_at: String(new Date()), created_at: String(new Date()) }
+    return this.usersService.create(data)
   }
 
-  @Query(() => Users, { nullable: true })
-  user(@Args('id', { type: () => ID }) id: string) {
-    return this.usersService.findOneById(id)
+  @Query(() => [Users], { name: 'users', nullable: true })
+  users(
+    @Args('id', { type: () => Int }) id: number,
+    @Args('first_name', { nullable: true }) first_name?: string,
+    @Args('last_name', { nullable: true }) last_name?: string,
+    @Args('gender', { nullable: true }) gender?: string
+  ) {
+    const where = { id, first_name, last_name, gender }
+    return this.usersService.findAll(where)
+  }
+
+  @Query(() => Users, { name: 'user', nullable: true })
+  user(@Args('id', { type: () => Int }) id: number) {
+    const where = { id }
+    return this.usersService.findOne(where)
   }
 
   @Mutation(() => Users, { nullable: true })
-  async createUser(@Args('firstName') firstName: string, @Args('lastName') lastName: string) {
-    return this.usersService.create(firstName, lastName)
+  updateUser(
+    @Args('id', { type: () => Int }) id: number,
+    @Args('first_name', { nullable: true }) first_name?: string,
+    @Args('last_name', { nullable: true }) last_name?: string,
+    @Args('gender', { nullable: true }) gender?: string
+  ) {
+    const where = { id }
+    const data = { first_name, last_name, gender, updated_at: String(new Date()) }
+    return this.usersService.update(where, data)
+  }
+
+  @Mutation(() => Users, { nullable: true })
+  removeUser(@Args('id', { type: () => Int }) id: number) {
+    const where = { id }
+    return this.usersService.remove(where)
   }
 }

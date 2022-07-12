@@ -1,20 +1,28 @@
 import { Injectable } from '@nestjs/common'
-import dayjs from 'dayjs'
 import { PrismaService } from 'src/prisma.service'
+import { Prisma } from '@prisma/client'
 
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  async findAll() {
-    return await this.prisma.users.findMany()
+  create(data: Prisma.UsersCreateInput) {
+    return this.prisma.users.create({ data })
   }
 
-  async findOneById(id: string) {
-    return await this.prisma.users.findUnique({ where: { id: Number(id) } })
+  findAll(where?: Prisma.UsersWhereInput) {
+    return this.prisma.users.findMany({ where })
   }
 
-  async create(firstName: string, lastName: string) {
-    return this.prisma.users.create({ data: { first_name: firstName, last_name: lastName, created_at: dayjs().toString(), updated_at: dayjs().toString() } })
+  findOne(where: Prisma.UsersWhereUniqueInput) {
+    return this.prisma.users.findUnique({ where })
+  }
+
+  update(where: Prisma.UsersWhereUniqueInput, data: Prisma.XOR<Prisma.UsersUpdateInput, Prisma.UsersUncheckedUpdateInput>) {
+    return this.prisma.users.update({ data, where })
+  }
+
+  remove(where: Prisma.UsersWhereUniqueInput) {
+    return this.prisma.users.delete({ where })
   }
 }
