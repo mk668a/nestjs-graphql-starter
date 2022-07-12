@@ -1,20 +1,20 @@
-import { Injectable, NotFoundException } from '@nestjs/common'
-import { Status, Users } from './users.models'
+import { Injectable } from '@nestjs/common'
+import dayjs from 'dayjs'
+import { PrismaService } from 'src/prisma.service'
 
 @Injectable()
 export class UsersService {
-  private users: Users[] = [
-    { id: '1', gender: '', firstName: 'aaa', lastName: 'bbb', status: Status.ACTIVE, createdAt: new Date(), updatedAt: new Date() },
-    { id: '2', gender: '', firstName: 'aaa2', lastName: 'bbb2', status: Status.ACTIVE, createdAt: new Date(), updatedAt: new Date() }
-  ]
+  constructor(private prisma: PrismaService) {}
 
-  findAll(): Users[] {
-    return this.users
+  async findAll() {
+    return await this.prisma.users.findMany()
   }
 
-  findOneById(id: string): Users {
-    const result = this.users.find((todo) => id === todo.id)
-    if (!result) throw new NotFoundException()
-    return result
+  async findOneById(id: string) {
+    return await this.prisma.users.findUnique({ where: { id: Number(id) } })
+  }
+
+  async create(firstName: string, lastName: string) {
+    return this.prisma.users.create({ data: { first_name: firstName, last_name: lastName, created_at: dayjs().toString(), updated_at: dayjs().toString() } })
   }
 }

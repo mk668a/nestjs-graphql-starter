@@ -26,7 +26,6 @@ module.exports = {
     ], // asで型付けを禁止(type assertion禁止)
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'], // interface禁止、typeのみ使用可
     '@typescript-eslint/dot-notation': ['error'], // objectのkeyを指定する時、できるだけドットを使用する
-    '@typescript-eslint/explicit-module-boundary-types': ['error'], // 関数の返り値の型と、関数内のreturnの型を一致させる
     '@typescript-eslint/lines-between-class-members': ['error'], // classのメンバに改行を強制
     '@typescript-eslint/member-ordering': ['error', { default: ['constructor', 'field', 'signature', 'method'] }], // classのメンバの宣言順を強制
     '@typescript-eslint/method-signature-style': ['error', 'property'], // functionの型をアロー関数で書く: func(arg: boolean): void -> func: (arg: boolean) => void
@@ -38,13 +37,13 @@ module.exports = {
     '@typescript-eslint/no-namespace': 'error', // namespace使用禁止
     '@typescript-eslint/no-shadow': ['error'], // スコープ外に存在する変数と同じ名前の変数を宣言するとエラー
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error', // boolean型の不要な比較を禁止（if(bool === true)など）
-    '@typescript-eslint/no-unnecessary-condition': 'error', // 不要なif文を禁止
+    '@typescript-eslint/no-unnecessary-condition': 'warn', // 不要なif文を禁止
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/prefer-for-of': 'error', // for(let i... でiを使用してない場合は for of を使うように強制
     '@typescript-eslint/prefer-includes': 'error', // indexOf使用禁止: includesを使う
     '@typescript-eslint/prefer-string-starts-ends-with': 'error', // 文字列が特定の文字列で開始するか終了するかを確認する時、startsWith/endsWithの使用を強制
-    '@typescript-eslint/strict-boolean-expressions': 'error', // booleanが予想されるif文での非booleanの使用を禁止する
+    '@typescript-eslint/strict-boolean-expressions': 'warn', // booleanが予想されるif文での非booleanの使用を禁止する
     '@typescript-eslint/typedef': [
       'error',
       {
@@ -63,13 +62,6 @@ module.exports = {
     'no-mixed-spaces-and-tabs': 'error', // インデントにタブと空白を混在させないこと
     'no-nested-ternary': 'error', // 3項演算子をネストさせないこと
     'no-proto': 'error', // __proto__ を使用しないこと
-    'no-restricted-syntax': [
-      'error',
-      {
-        selector: 'TSEnumDeclaration',
-        message: "Don't use `enum` as a type."
-      }
-    ], // enum禁止
     'no-trailing-spaces': 'error', // 行末に不要な空白を残さないこと
     'no-useless-concat': 'error', // 無駄な文字列結合は行わないこと
     'object-shorthand': 'error', // オブジェクト定義時にショートハンドが利用できる場合は利用すること

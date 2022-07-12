@@ -11,7 +11,7 @@ registerEnumType(Status, {
 
 @ObjectType()
 export class Users {
-  @Field((type) => ID)
+  @Field(() => ID)
   id: string
 
   @Field()
@@ -21,9 +21,9 @@ export class Users {
   lastName: string
 
   @Field({ nullable: true })
-  gender: string
+  gender?: string
 
-  @Field((type) => Status)
+  @Field(() => Status)
   status: Status
 
   @Field()
