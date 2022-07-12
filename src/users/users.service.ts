@@ -6,16 +6,16 @@ import { Prisma } from '@prisma/client'
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  create(data: Prisma.UsersCreateInput) {
-    return this.prisma.users.create({ data })
+  async findOne(where: Prisma.UsersWhereUniqueInput) {
+    return await this.prisma.users.findUnique({ where })
   }
 
   findAll(where?: Prisma.UsersWhereInput) {
     return this.prisma.users.findMany({ where })
   }
 
-  findOne(where: Prisma.UsersWhereUniqueInput) {
-    return this.prisma.users.findUnique({ where })
+  create(data: Prisma.UsersCreateInput) {
+    return this.prisma.users.create({ data })
   }
 
   update(where: Prisma.UsersWhereUniqueInput, data: Prisma.XOR<Prisma.UsersUpdateInput, Prisma.UsersUncheckedUpdateInput>) {
