@@ -12,7 +12,7 @@ registerEnumType(Status, {
 @ObjectType()
 export class Users {
   @Field(() => ID)
-  id: string
+  id: number
 
   @Field()
   first_name: string

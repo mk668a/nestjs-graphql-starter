@@ -6,23 +6,51 @@ import { Prisma } from '@prisma/client'
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  async findOne(where: Prisma.UsersWhereUniqueInput) {
-    return await this.prisma.users.findUnique({ where })
+  async findFirst(args: Prisma.UsersFindFirstArgs) {
+    return await this.prisma.users.findFirst(args)
   }
 
-  findAll(where?: Prisma.UsersWhereInput) {
-    return this.prisma.users.findMany({ where })
+  findUnique(args: Prisma.UsersFindUniqueArgs) {
+    return this.prisma.users.findUnique(args)
   }
 
-  create(data: Prisma.UsersCreateInput) {
-    return this.prisma.users.create({ data })
+  findMany(args: Prisma.UsersFindManyArgs) {
+    return this.prisma.users.findMany(args)
   }
 
-  update(where: Prisma.UsersWhereUniqueInput, data: Prisma.XOR<Prisma.UsersUpdateInput, Prisma.UsersUncheckedUpdateInput>) {
-    return this.prisma.users.update({ data, where })
+  groupBy(args: Prisma.UsersGroupByArgs & { orderBy: Prisma.Enumerable<Prisma.UsersOrderByWithAggregationInput> | undefined }) {
+    return this.prisma.users.groupBy(args)
   }
 
-  remove(where: Prisma.UsersWhereUniqueInput) {
-    return this.prisma.users.delete({ where })
+  aggregate(args: Prisma.UsersAggregateArgs) {
+    return this.prisma.users.aggregate(args)
+  }
+
+  create(args: Prisma.UsersCreateArgs) {
+    return this.prisma.users.create(args)
+  }
+
+  createMany(args: Prisma.UsersCreateManyArgs) {
+    return this.prisma.users.createMany(args)
+  }
+
+  update(args: Prisma.UsersUpdateArgs) {
+    return this.prisma.users.update(args)
+  }
+
+  updateMany(args: Prisma.UsersUpdateManyArgs) {
+    return this.prisma.users.updateMany(args)
+  }
+
+  upsert(args: Prisma.UsersUpsertArgs) {
+    return this.prisma.users.upsert(args)
+  }
+
+  delete(args: Prisma.UsersDeleteArgs) {
+    return this.prisma.users.delete(args)
+  }
+
+  deleteMany(args: Prisma.UsersDeleteManyArgs) {
+    return this.prisma.users.deleteMany(args)
   }
 }
