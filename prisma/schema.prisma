@@ -6,16 +6,21 @@ generator client {
   binaryTargets = ["native", "rhel-openssl-1.0.x"]
 }
 
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "../prisma/generated/type-graphql"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Users {
-  id          Int     @default(autoincrement()) @id
-  first_name  String
-  last_name   String
-  gender      String?
-  created_at  String
-  updated_at  String
+  id          Int       @default(autoincrement()) @id
+  first_name  String    @db.VarChar(255)
+  last_name   String    @db.VarChar(255)
+  gender      String?   @db.VarChar(255)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
 }

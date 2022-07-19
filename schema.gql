@@ -2,26 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Users {
-  id: ID!
-  first_name: String!
-  last_name: String!
-  gender: String
-  status: Status!
-  created_at: DateTime!
-  updated_at: DateTime!
-}
-
-enum Status {
-  ACTIVE
-  INACTIVE
-}
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
 type Query {
   findFirstUsers(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int, distinct: [UsersScalarFieldEnum!]): Users!
   findUniqueUsers(where: UsersWhereUniqueInput!): Users!
@@ -29,6 +9,20 @@ type Query {
   groupByUsers(where: UsersWhereInput, orderBy: [UsersOrderByWithAggregationInput!], by: [UsersScalarFieldEnum!]!, having: UsersScalarWhereWithAggregatesInput, take: Int, skip: Int): [UsersGroupBy!]!
   aggregateUsers(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int): AggregateUsers!
 }
+
+type Users {
+  id: Int!
+  first_name: String!
+  last_name: String!
+  gender: String
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 input UsersWhereInput {
   AND: [UsersWhereInput!]
@@ -38,8 +32,8 @@ input UsersWhereInput {
   first_name: StringFilter
   last_name: StringFilter
   gender: StringNullableFilter
-  created_at: StringFilter
-  updated_at: StringFilter
+  created_at: DateTimeFilter
+  updated_at: DateTimeFilter
 }
 
 input IntFilter {
@@ -125,6 +119,28 @@ input NestedStringNullableFilter {
   startsWith: String
   endsWith: String
   not: NestedStringNullableFilter
+}
+
+input DateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
 }
 
 input UsersOrderByWithRelationInput {
@@ -261,8 +277,8 @@ input UsersScalarWhereWithAggregatesInput {
   first_name: StringWithAggregatesFilter
   last_name: StringWithAggregatesFilter
   gender: StringNullableWithAggregatesFilter
-  created_at: StringWithAggregatesFilter
-  updated_at: StringWithAggregatesFilter
+  created_at: DateTimeWithAggregatesFilter
+  updated_at: DateTimeWithAggregatesFilter
 }
 
 input IntWithAggregatesFilter {
@@ -389,6 +405,34 @@ input NestedIntNullableFilter {
   not: NestedIntNullableFilter
 }
 
+input DateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedDateTimeFilter
+  _max: NestedDateTimeFilter
+}
+
+input NestedDateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedDateTimeFilter
+  _max: NestedDateTimeFilter
+}
+
 type AggregateUsers {
   _count: UsersCountAggregate
   _avg: UsersAvgAggregate
@@ -411,8 +455,8 @@ input UsersCreateInput {
   first_name: String!
   last_name: String!
   gender: String
-  created_at: String!
-  updated_at: String!
+  created_at: DateTime
+  updated_at: DateTime
 }
 
 type AffectedRowsOutput {
@@ -424,16 +468,16 @@ input UsersCreateManyInput {
   first_name: String!
   last_name: String!
   gender: String
-  created_at: String!
-  updated_at: String!
+  created_at: DateTime
+  updated_at: DateTime
 }
 
 input UsersUpdateInput {
   first_name: StringFieldUpdateOperationsInput
   last_name: StringFieldUpdateOperationsInput
   gender: NullableStringFieldUpdateOperationsInput
-  created_at: StringFieldUpdateOperationsInput
-  updated_at: StringFieldUpdateOperationsInput
+  created_at: DateTimeFieldUpdateOperationsInput
+  updated_at: DateTimeFieldUpdateOperationsInput
 }
 
 input StringFieldUpdateOperationsInput {
@@ -444,10 +488,14 @@ input NullableStringFieldUpdateOperationsInput {
   set: String
 }
 
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
 input UsersUpdateManyMutationInput {
   first_name: StringFieldUpdateOperationsInput
   last_name: StringFieldUpdateOperationsInput
   gender: NullableStringFieldUpdateOperationsInput
-  created_at: StringFieldUpdateOperationsInput
-  updated_at: StringFieldUpdateOperationsInput
+  created_at: DateTimeFieldUpdateOperationsInput
+  updated_at: DateTimeFieldUpdateOperationsInput
 }

@@ -1,34 +1,23 @@
 // src/todo/models/todo.models.ts
-import { Field, ID, ObjectType, registerEnumType } from '@nestjs/graphql'
+import * as NestJsGraphql from '@nestjs/graphql'
 
-export enum Status {
-  ACTIVE,
-  INACTIVE
-}
-registerEnumType(Status, {
-  name: 'Status'
-})
-
-@ObjectType()
+@NestJsGraphql.ObjectType('Users', { isAbstract: true })
 export class Users {
-  @Field(() => ID)
-  id: number
+  @NestJsGraphql.Field(() => NestJsGraphql.Int)
+  id!: number
 
-  @Field()
-  first_name: string
+  @NestJsGraphql.Field(() => String)
+  first_name!: string
 
-  @Field()
-  last_name: string
+  @NestJsGraphql.Field(() => String)
+  last_name!: string
 
-  @Field({ nullable: true })
-  gender?: string
+  @NestJsGraphql.Field(() => String, { nullable: true })
+  gender?: string | null
 
-  @Field(() => Status)
-  status: Status
+  @NestJsGraphql.Field(() => Date)
+  created_at!: Date
 
-  @Field()
-  created_at: Date
-
-  @Field()
-  updated_at: Date
+  @NestJsGraphql.Field(() => Date)
+  updated_at!: Date
 }

@@ -1,6 +1,9 @@
 import * as NestJsGraphql from '@nestjs/graphql'
 import { SortOrder } from 'src/common/enums'
 import {
+  DateTimeFieldUpdateOperationsInput,
+  DateTimeFilter,
+  DateTimeWithAggregatesFilter,
   IntFilter,
   IntWithAggregatesFilter,
   NullableStringFieldUpdateOperationsInput,
@@ -34,11 +37,11 @@ export class UsersWhereInput {
   @NestJsGraphql.Field(() => StringNullableFilter, { nullable: true })
   gender?: StringNullableFilter | undefined
 
-  @NestJsGraphql.Field(() => StringFilter, { nullable: true })
-  created_at?: StringFilter | undefined
+  @NestJsGraphql.Field(() => DateTimeFilter, { nullable: true })
+  created_at?: DateTimeFilter | undefined
 
-  @NestJsGraphql.Field(() => StringFilter, { nullable: true })
-  updated_at?: StringFilter | undefined
+  @NestJsGraphql.Field(() => DateTimeFilter, { nullable: true })
+  updated_at?: DateTimeFilter | undefined
 }
 
 @NestJsGraphql.InputType('UsersOrderByWithRelationInput', { isAbstract: true })
@@ -202,11 +205,11 @@ export class UsersScalarWhereWithAggregatesInput {
   @NestJsGraphql.Field(() => StringNullableWithAggregatesFilter, { nullable: true })
   gender?: StringNullableWithAggregatesFilter | undefined
 
-  @NestJsGraphql.Field(() => StringWithAggregatesFilter, { nullable: true })
-  created_at?: StringWithAggregatesFilter | undefined
+  @NestJsGraphql.Field(() => DateTimeWithAggregatesFilter, { nullable: true })
+  created_at?: DateTimeWithAggregatesFilter | undefined
 
-  @NestJsGraphql.Field(() => StringWithAggregatesFilter, { nullable: true })
-  updated_at?: StringWithAggregatesFilter | undefined
+  @NestJsGraphql.Field(() => DateTimeWithAggregatesFilter, { nullable: true })
+  updated_at?: DateTimeWithAggregatesFilter | undefined
 }
 
 @NestJsGraphql.InputType('UsersCreateInput', { isAbstract: true })
@@ -220,11 +223,11 @@ export class UsersCreateInput {
   @NestJsGraphql.Field(() => String, { nullable: true })
   gender?: string | undefined
 
-  @NestJsGraphql.Field(() => String)
-  created_at!: string
+  @NestJsGraphql.Field(() => Date)
+  created_at?: Date | undefined
 
-  @NestJsGraphql.Field(() => String)
-  updated_at!: string
+  @NestJsGraphql.Field(() => Date)
+  updated_at?: Date | undefined
 }
 
 @NestJsGraphql.InputType('UsersCreateManyInput', { isAbstract: true })
@@ -241,11 +244,11 @@ export class UsersCreateManyInput {
   @NestJsGraphql.Field(() => String, { nullable: true })
   gender?: string | undefined
 
-  @NestJsGraphql.Field(() => String)
-  created_at!: string
+  @NestJsGraphql.Field(() => Date)
+  created_at?: Date | undefined
 
-  @NestJsGraphql.Field(() => String)
-  updated_at!: string
+  @NestJsGraphql.Field(() => Date)
+  updated_at?: Date | undefined
 }
 
 @NestJsGraphql.InputType('UsersUpdateManyMutationInput', { isAbstract: true })
@@ -259,11 +262,11 @@ export class UsersUpdateManyMutationInput {
   @NestJsGraphql.Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   gender?: NullableStringFieldUpdateOperationsInput | undefined
 
-  @NestJsGraphql.Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  created_at?: StringFieldUpdateOperationsInput | undefined
+  @NestJsGraphql.Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
+  created_at?: DateTimeFieldUpdateOperationsInput | undefined
 
-  @NestJsGraphql.Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  updated_at?: StringFieldUpdateOperationsInput | undefined
+  @NestJsGraphql.Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
+  updated_at?: DateTimeFieldUpdateOperationsInput | undefined
 }
 
 @NestJsGraphql.InputType('UsersUpdateInput', { isAbstract: true })
@@ -277,9 +280,9 @@ export class UsersUpdateInput {
   @NestJsGraphql.Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
   gender?: NullableStringFieldUpdateOperationsInput | undefined
 
-  @NestJsGraphql.Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  created_at?: StringFieldUpdateOperationsInput | undefined
+  @NestJsGraphql.Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
+  created_at?: DateTimeFieldUpdateOperationsInput | undefined
 
-  @NestJsGraphql.Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  updated_at?: StringFieldUpdateOperationsInput | undefined
+  @NestJsGraphql.Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
+  updated_at?: DateTimeFieldUpdateOperationsInput | undefined
 }
