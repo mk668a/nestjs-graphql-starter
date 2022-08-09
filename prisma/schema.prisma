@@ -6,9 +6,9 @@ generator client {
   binaryTargets = ["native", "rhel-openssl-1.0.x"]
 }
 
-generator typegraphql {
-  provider = "typegraphql-prisma"
-  output   = "../prisma/generated/type-graphql"
+generator custom_generator {
+  provider = "nestjs-prisma-graphql-crud-gen"
+  output = "../src/generated"
 }
 
 datasource db {
@@ -17,10 +17,42 @@ datasource db {
 }
 
 model Users {
-  id          Int       @default(autoincrement()) @id
-  first_name  String    @db.VarChar(255)
-  last_name   String    @db.VarChar(255)
-  gender      String?   @db.VarChar(255)
+  id          String  @id @default(cuid())
+  first_name  String  @db.VarChar(255)
+  last_name   String  @db.VarChar(255)
+  email       String  @unique
+  gender      String? @db.VarChar(255)
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
+  posts       Post[]
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  published Boolean
+  title     String
+  content   String?
+  author    Users?    @relation(fields: [authorId], references: [id])
+  authorId  String?
+}
+
+enum NotificationType {
+  newPosts
+  newComments
+  newFollowers
+  reply
+  heartOnPost
+  heartOnComment
+  heartOnReply
+}
+
+enum Language {
+  Typescript
+  Javascript
+  Rust
+  Go
+  Python
+  Cpp
 }

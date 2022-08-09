@@ -1,21 +1,22 @@
 import * as NestJsGraphql from '@nestjs/graphql'
-import { UsersService } from './users.service'
-import { Users } from 'src/models/users.models'
-import { AffectedRowsOutput, AggregateUsers, UsersGroupBy } from './users.output'
+import { AffectedRowsOutput } from '../common/outputs'
+import { Users } from '../models/users.model'
 import {
   AggregateUsersArgs,
   CreateManyUsersArgs,
-  CreateUsersArgs,
+  CreateOneUsersArgs,
   DeleteManyUsersArgs,
-  DeleteUsersArgs,
+  DeleteOneUsersArgs,
   FindFirstUsersArgs,
   FindManyUsersArgs,
   FindUniqueUsersArgs,
   GroupByUsersArgs,
   UpdateManyUsersArgs,
-  UpdateUsersArgs,
-  UpsertUsersArgs
+  UpdateOneUsersArgs,
+  UpsertOneUsersArgs
 } from './users.args'
+import { AggregateUsers, UsersGroupBy } from './users.output'
+import { UsersService } from './users.service'
 
 @NestJsGraphql.Resolver(() => Users)
 export class UsersResolver {
@@ -47,7 +48,7 @@ export class UsersResolver {
   }
 
   @NestJsGraphql.Mutation(() => Users, { nullable: true })
-  createUsers(@NestJsGraphql.Args() args: CreateUsersArgs) {
+  createUsers(@NestJsGraphql.Args() args: CreateOneUsersArgs) {
     return this.usersService.create(args)
   }
 
@@ -57,7 +58,7 @@ export class UsersResolver {
   }
 
   @NestJsGraphql.Mutation(() => Users, { nullable: true })
-  updateUsers(@NestJsGraphql.Args() args: UpdateUsersArgs) {
+  updateUsers(@NestJsGraphql.Args() args: UpdateOneUsersArgs) {
     return this.usersService.update(args)
   }
 
@@ -67,12 +68,12 @@ export class UsersResolver {
   }
 
   @NestJsGraphql.Mutation(() => Users, { nullable: true })
-  upsertUsers(@NestJsGraphql.Args() args: UpsertUsersArgs) {
+  upsertUsers(@NestJsGraphql.Args() args: UpsertOneUsersArgs) {
     return this.usersService.upsert(args)
   }
 
   @NestJsGraphql.Mutation(() => Users, { nullable: true })
-  deleteUsers(@NestJsGraphql.Args() args: DeleteUsersArgs) {
+  deleteUsers(@NestJsGraphql.Args() args: DeleteOneUsersArgs) {
     return this.usersService.delete(args)
   }
 

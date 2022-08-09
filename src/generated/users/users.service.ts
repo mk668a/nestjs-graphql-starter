@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { PrismaService } from 'src/prisma.service'
 import { Prisma } from '@prisma/client'
+import { PrismaService } from '../../prisma.service'
 
 @Injectable()
 export class UsersService {
@@ -18,7 +18,8 @@ export class UsersService {
     return this.prisma.users.findMany(args)
   }
 
-  groupBy(args: Prisma.UsersGroupByArgs & { orderBy: Prisma.Enumerable<Prisma.UsersOrderByWithAggregationInput> | undefined }) {
+  groupBy(args: Prisma.UsersGroupByArgs) {
+    // @ts-ignore
     return this.prisma.users.groupBy(args)
   }
 

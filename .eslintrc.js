@@ -14,7 +14,7 @@ module.exports = {
   },
   ignorePatterns: ['.eslintrc.js'],
   rules: {
-    '@typescript-eslint/array-type': ['error', { default: 'generic', readonly: 'generic' }], // T[]禁止、Array<T>の書き方にする
+    '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/class-literal-property-style': ['error', 'fields'], // classでgetter,setterを使用しない
     '@typescript-eslint/consistent-indexed-object-style': ['error', 'index-signature'], // objectのkey,valueの型で、Record<string, unknown>の書き方を禁止
     '@typescript-eslint/consistent-type-assertions': [

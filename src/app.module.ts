@@ -3,7 +3,8 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { UsersModule } from './users/users.module'
+import { UsersModule } from './generated/users/users.module'
+import { PostModule } from './generated/post/post.module'
 
 @Module({
   imports: [
@@ -11,7 +12,8 @@ import { UsersModule } from './users/users.module'
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql'
     }),
-    UsersModule
+    UsersModule,
+    PostModule
   ],
   controllers: [AppController],
   providers: [AppService]
