@@ -890,12 +890,19 @@
     consola "^2.15.0"
     node-fetch "^2.6.1"
 
-"@prisma/client@4.1.0", "@prisma/client@^4.1.0":
+"@prisma/client@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-4.1.0.tgz#7c5341b2276c083821e432536ff97d8cc8f8b936"
   integrity sha512-MvfPGAd42vHTiCYxwS6N+2U3F+ukoJ48D2QRnX1zSPJHBkh1CBtshl75daKzvVfgQwSouzSQeugKDej5di+E/g==
   dependencies:
     "@prisma/engines-version" "4.1.0-48.8d8414deb360336e4698a65aa45a1fbaf1ce13d8"
+
+"@prisma/client@^4.1.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-4.2.1.tgz#b384587f6066070381ea4c90228a14697a0c271b"
+  integrity sha512-PZBkY60+k5oix+e6IUfl3ub8TbRLNsPLdfWrdy2eh80WcHTaT+/UfvXf/B7gXedH7FRtbPFHZXk1hZenJiJZFQ==
+  dependencies:
+    "@prisma/engines-version" "4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826"
 
 "@prisma/debug@3.15.2":
   version "3.15.2"
@@ -910,6 +917,15 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-4.0.0.tgz#93420c704b851f1a6599337dc9db8b4d585c0e8d"
   integrity sha512-3u+FEEwVSTXOkiWH+MEqy9T7VUrPxRZNKORKvuaJS1jL0bhDTCZOv7s/RsllVJRtEiAjWjy7il6Lj7DbQIiP0Q==
+  dependencies:
+    "@types/debug" "4.1.7"
+    debug "4.3.4"
+    strip-ansi "6.0.1"
+
+"@prisma/debug@4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-4.2.1.tgz#22f87552325e761b8be794a7595af65314bd57b2"
+  integrity sha512-Cf7FBwZN5dNHD/iboWYbKQHSykpoVP/AmWVCUm74S3av2XbbHE5Eku5oudhpWD8gE55UrpHvO8hzBmD9m+XTQQ==
   dependencies:
     "@types/debug" "4.1.7"
     debug "4.3.4"
@@ -937,6 +953,11 @@
   version "4.1.0-48.8d8414deb360336e4698a65aa45a1fbaf1ce13d8"
   resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-4.1.0-48.8d8414deb360336e4698a65aa45a1fbaf1ce13d8.tgz#ce00e6377126e491a8b1e0e2039c97e2924bd6d9"
   integrity sha512-cRRJwpHFGFJZvtHbY3GZjMffNBEjjZk68ztn+S2hDgPCGB4H66IK26roK94GJxBodSehwRJ0wGyebC2GoIH1JQ==
+
+"@prisma/engines-version@4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826":
+  version "4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826"
+  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826.tgz#63917e579b9f15460f102eaf08a4411a7e0666e7"
+  integrity sha512-tktkqdiwqE4QhmE088boPt+FwPj1Jub/zk+5F6sEfcRHzO5yz9jyMD5HFVtiwxZPLx/8Xg9ElnuTi8E5lWVQFQ==
 
 "@prisma/engines@3.16.0-49.da41d2bb3406da22087b849f0e911199ba4fbf11":
   version "3.16.0-49.da41d2bb3406da22087b849f0e911199ba4fbf11"
@@ -977,6 +998,16 @@
   integrity sha512-BuyfP1T+lGmvLsysKlFN12yNbVIJbtCm0lb+feIjCYwtFYVj3/+09wezLGzlaYPz+nnwqFohZrojcrBF0oBW8g==
   dependencies:
     "@prisma/debug" "4.0.0"
+    "@types/cross-spawn" "6.0.2"
+    chalk "4.1.2"
+    cross-spawn "7.0.3"
+
+"@prisma/generator-helper@^4.1.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@prisma/generator-helper/-/generator-helper-4.2.1.tgz#26cd37b00dc2b30e08f9e04333496721833e3ab5"
+  integrity sha512-6P3lJMu/he4LcvUBL+1L9IkBGpF2Z8Kgp3Qr9hyjPLbFh4gLRfMC76Wj4vIlWpOyKW/P3tQH7NwU9kH/eq6z1g==
+  dependencies:
+    "@prisma/debug" "4.2.1"
     "@types/cross-spawn" "6.0.2"
     chalk "4.1.2"
     cross-spawn "7.0.3"
@@ -4579,13 +4610,13 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-nestjs-prisma-graphql-crud-gen@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/nestjs-prisma-graphql-crud-gen/-/nestjs-prisma-graphql-crud-gen-1.0.2.tgz#32aa366c42ced7177542d98de23f23ad27502e51"
-  integrity sha512-sS3nvQwYbd8pdkSvoeLsLlj8D6v2mkbB6RbFQ01Jkyz0+Rap/c4ErLYutdnKBHLP93BnOld6yNE80GooJzwXiA==
+nestjs-prisma-graphql-crud-gen@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/nestjs-prisma-graphql-crud-gen/-/nestjs-prisma-graphql-crud-gen-1.0.3.tgz#5e980f0734721ea3a54278598be2aee7a1dcff9f"
+  integrity sha512-AzHloKnxd76uAR9YR/JWHfodZKz9MTKNK3nnB4moOcWMhJkb2tGo/er47y0SzUJ9l2F9woXxOGp3MYTbG6LUUQ==
   dependencies:
-    "@prisma/client" "4.1.0"
-    "@prisma/generator-helper" "4.0.0"
+    "@prisma/client" "^4.1.1"
+    "@prisma/generator-helper" "^4.1.1"
     "@prisma/sdk" "4.0.0"
     pluralize "^8.0.0"
     prettier "2.7.1"
