@@ -1,25 +1,25 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
+import * as NestJsGraphQL from "@nestjs/graphql";
 
 @NestJsGraphQL.ObjectType('PostMaxAggregate', { isAbstract: true })
 export class PostMaxAggregate {
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  id!: string | null
+  id!: string | null;
 
   @NestJsGraphQL.Field(() => Date, { nullable: true })
-  createdAt!: Date | null
+  createdAt!: Date | null;
 
   @NestJsGraphQL.Field(() => Date, { nullable: true })
-  updatedAt!: Date | null
+  updatedAt!: Date | null;
 
   @NestJsGraphQL.Field(() => Boolean, { nullable: true })
-  published!: boolean | null
+  published!: boolean | null;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  title!: string | null
+  title!: string | null;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  content!: string | null
+  content!: string | null;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  authorId!: string | null
+  authorId!: string | null;
 }

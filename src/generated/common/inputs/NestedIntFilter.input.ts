@@ -1,4 +1,4 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
+import * as NestJsGraphQL from "@nestjs/graphql";
 
 @NestJsGraphQL.InputType('NestedIntFilter', { isAbstract: true })
 export class NestedIntFilter {
@@ -6,23 +6,23 @@ export class NestedIntFilter {
   equals?: number | undefined;
 
   @NestJsGraphQL.Field(() => [NestJsGraphQL.Int], { nullable: true })
-  in?: number[] | undefined
+  in?: number[] | undefined;
 
   @NestJsGraphQL.Field(() => [NestJsGraphQL.Int], { nullable: true })
-  notIn?: number[] | undefined
+  notIn?: number[] | undefined;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int, { nullable: true })
-  lt?: number | undefined
+  lt?: number | undefined;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int, { nullable: true })
-  lte?: number | undefined
+  lte?: number | undefined;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int, { nullable: true })
-  gt?: number | undefined
+  gt?: number | undefined;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int, { nullable: true })
-  gte?: number | undefined
+  gte?: number | undefined;
 
   @NestJsGraphQL.Field(() => NestedIntFilter, { nullable: true })
-  not?: NestedIntFilter | undefined
+  not?: NestedIntFilter | undefined;
 }

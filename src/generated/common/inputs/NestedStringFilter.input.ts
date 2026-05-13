@@ -1,4 +1,4 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
+import * as NestJsGraphQL from "@nestjs/graphql";
 
 @NestJsGraphQL.InputType('NestedStringFilter', { isAbstract: true })
 export class NestedStringFilter {
@@ -6,32 +6,32 @@ export class NestedStringFilter {
   equals?: string | undefined;
 
   @NestJsGraphQL.Field(() => [String], { nullable: true })
-  in?: string[] | undefined
+  in?: string[] | undefined;
 
   @NestJsGraphQL.Field(() => [String], { nullable: true })
-  notIn?: string[] | undefined
+  notIn?: string[] | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  lt?: string | undefined
+  lt?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  lte?: string | undefined
+  lte?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  gt?: string | undefined
+  gt?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  gte?: string | undefined
+  gte?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  contains?: string | undefined
+  contains?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  startsWith?: string | undefined
+  startsWith?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  endsWith?: string | undefined
+  endsWith?: string | undefined;
 
   @NestJsGraphQL.Field(() => NestedStringFilter, { nullable: true })
-  not?: NestedStringFilter | undefined
+  not?: NestedStringFilter | undefined;
 }

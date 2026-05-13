@@ -1,28 +1,28 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
+import * as NestJsGraphQL from "@nestjs/graphql";
 
 @NestJsGraphQL.ObjectType('PostCountAggregate', { isAbstract: true })
 export class PostCountAggregate {
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int)
-  id!: number
+  id!: number;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int)
-  createdAt!: number
+  createdAt!: number;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int)
-  updatedAt!: number
+  updatedAt!: number;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int)
-  published!: number
+  published!: number;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int)
-  title!: number
+  title!: number;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int)
-  content!: number
+  content!: number;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int)
-  authorId!: number
+  authorId!: number;
 
   @NestJsGraphQL.Field(() => NestJsGraphQL.Int)
-  _all!: number
+  _all!: number;
 }

@@ -1,26 +1,26 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
-import { BoolFieldUpdateOperationsInput } from '../../common/inputs/BoolFieldUpdateOperationsInput.input'
-import { DateTimeFieldUpdateOperationsInput } from '../../common/inputs/DateTimeFieldUpdateOperationsInput.input'
-import { NullableStringFieldUpdateOperationsInput } from '../../common/inputs/NullableStringFieldUpdateOperationsInput.input'
-import { StringFieldUpdateOperationsInput } from '../../common/inputs/StringFieldUpdateOperationsInput.input'
+import * as NestJsGraphQL from "@nestjs/graphql";
+import { BoolFieldUpdateOperationsInput } from "../../common/inputs/BoolFieldUpdateOperationsInput.input";
+import { DateTimeFieldUpdateOperationsInput } from "../../common/inputs/DateTimeFieldUpdateOperationsInput.input";
+import { NullableStringFieldUpdateOperationsInput } from "../../common/inputs/NullableStringFieldUpdateOperationsInput.input";
+import { StringFieldUpdateOperationsInput } from "../../common/inputs/StringFieldUpdateOperationsInput.input";
 
 @NestJsGraphQL.InputType('PostUpdateManyMutationInput', { isAbstract: true })
 export class PostUpdateManyMutationInput {
   @NestJsGraphQL.Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  id?: StringFieldUpdateOperationsInput | undefined
+  id?: StringFieldUpdateOperationsInput | undefined;
 
   @NestJsGraphQL.Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
-  createdAt?: DateTimeFieldUpdateOperationsInput | undefined
+  createdAt?: DateTimeFieldUpdateOperationsInput | undefined;
 
   @NestJsGraphQL.Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
-  updatedAt?: DateTimeFieldUpdateOperationsInput | undefined
+  updatedAt?: DateTimeFieldUpdateOperationsInput | undefined;
 
   @NestJsGraphQL.Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
-  published?: BoolFieldUpdateOperationsInput | undefined
+  published?: BoolFieldUpdateOperationsInput | undefined;
 
   @NestJsGraphQL.Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  title?: StringFieldUpdateOperationsInput | undefined
+  title?: StringFieldUpdateOperationsInput | undefined;
 
   @NestJsGraphQL.Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
-  content?: NullableStringFieldUpdateOperationsInput | undefined
+  content?: NullableStringFieldUpdateOperationsInput | undefined;
 }

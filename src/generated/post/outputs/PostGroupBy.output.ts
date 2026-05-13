@@ -1,37 +1,37 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
-import { PostCountAggregate } from './PostCountAggregate.output'
-import { PostMaxAggregate } from './PostMaxAggregate.output'
-import { PostMinAggregate } from './PostMinAggregate.output'
+import * as NestJsGraphQL from "@nestjs/graphql";
+import { PostCountAggregate } from "./PostCountAggregate.output";
+import { PostMaxAggregate } from "./PostMaxAggregate.output";
+import { PostMinAggregate } from "./PostMinAggregate.output";
 
 @NestJsGraphQL.ObjectType('PostGroupBy', { isAbstract: true })
 export class PostGroupBy {
   @NestJsGraphQL.Field(() => String)
-  id!: string
+  id!: string;
 
   @NestJsGraphQL.Field(() => Date)
-  createdAt!: Date
+  createdAt!: Date;
 
   @NestJsGraphQL.Field(() => Date)
-  updatedAt!: Date
+  updatedAt!: Date;
 
   @NestJsGraphQL.Field(() => Boolean)
-  published!: boolean
+  published!: boolean;
 
   @NestJsGraphQL.Field(() => String)
-  title!: string
+  title!: string;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  content!: string | null
+  content!: string | null;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  authorId!: string | null
+  authorId!: string | null;
 
   @NestJsGraphQL.Field(() => PostCountAggregate, { nullable: true })
-  _count!: PostCountAggregate | null
+  _count!: PostCountAggregate | null;
 
   @NestJsGraphQL.Field(() => PostMinAggregate, { nullable: true })
-  _min!: PostMinAggregate | null
+  _min!: PostMinAggregate | null;
 
   @NestJsGraphQL.Field(() => PostMaxAggregate, { nullable: true })
-  _max!: PostMaxAggregate | null
+  _max!: PostMaxAggregate | null;
 }

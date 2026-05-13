@@ -1,8 +1,8 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
-import { QueryMode } from '../enums'
-import { NestedIntFilter } from './NestedIntFilter.input'
-import { NestedStringFilter } from './NestedStringFilter.input'
-import { NestedStringWithAggregatesFilter } from './NestedStringWithAggregatesFilter.input'
+import * as NestJsGraphQL from "@nestjs/graphql";
+import { QueryMode } from "../../common/enums";
+import { NestedIntFilter } from "./NestedIntFilter.input";
+import { NestedStringFilter } from "./NestedStringFilter.input";
+import { NestedStringWithAggregatesFilter } from "./NestedStringWithAggregatesFilter.input";
 
 @NestJsGraphQL.InputType('StringWithAggregatesFilter', { isAbstract: true })
 export class StringWithAggregatesFilter {
@@ -10,44 +10,44 @@ export class StringWithAggregatesFilter {
   equals?: string | undefined;
 
   @NestJsGraphQL.Field(() => [String], { nullable: true })
-  in?: string[] | undefined
+  in?: string[] | undefined;
 
   @NestJsGraphQL.Field(() => [String], { nullable: true })
-  notIn?: string[] | undefined
+  notIn?: string[] | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  lt?: string | undefined
+  lt?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  lte?: string | undefined
+  lte?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  gt?: string | undefined
+  gt?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  gte?: string | undefined
+  gte?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  contains?: string | undefined
+  contains?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  startsWith?: string | undefined
+  startsWith?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  endsWith?: string | undefined
+  endsWith?: string | undefined;
 
   @NestJsGraphQL.Field(() => QueryMode, { nullable: true })
-  mode?: 'default' | 'insensitive' | undefined
+  mode?: "default" | "insensitive" | undefined;
 
   @NestJsGraphQL.Field(() => NestedStringWithAggregatesFilter, { nullable: true })
-  not?: NestedStringWithAggregatesFilter | undefined
+  not?: NestedStringWithAggregatesFilter | undefined;
 
   @NestJsGraphQL.Field(() => NestedIntFilter, { nullable: true })
-  _count?: NestedIntFilter | undefined
+  _count?: NestedIntFilter | undefined;
 
   @NestJsGraphQL.Field(() => NestedStringFilter, { nullable: true })
-  _min?: NestedStringFilter | undefined
+  _min?: NestedStringFilter | undefined;
 
   @NestJsGraphQL.Field(() => NestedStringFilter, { nullable: true })
-  _max?: NestedStringFilter | undefined
+  _max?: NestedStringFilter | undefined;
 }

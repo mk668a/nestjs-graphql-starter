@@ -1,6 +1,6 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
-import { NestedDateTimeFilter } from './NestedDateTimeFilter.input'
-import { NestedIntFilter } from './NestedIntFilter.input'
+import * as NestJsGraphQL from "@nestjs/graphql";
+import { NestedDateTimeFilter } from "./NestedDateTimeFilter.input";
+import { NestedIntFilter } from "./NestedIntFilter.input";
 
 @NestJsGraphQL.InputType('NestedDateTimeWithAggregatesFilter', { isAbstract: true })
 export class NestedDateTimeWithAggregatesFilter {
@@ -8,32 +8,32 @@ export class NestedDateTimeWithAggregatesFilter {
   equals?: Date | undefined;
 
   @NestJsGraphQL.Field(() => [Date], { nullable: true })
-  in?: Date[] | undefined
+  in?: Date[] | undefined;
 
   @NestJsGraphQL.Field(() => [Date], { nullable: true })
-  notIn?: Date[] | undefined
+  notIn?: Date[] | undefined;
 
   @NestJsGraphQL.Field(() => Date, { nullable: true })
-  lt?: Date | undefined
+  lt?: Date | undefined;
 
   @NestJsGraphQL.Field(() => Date, { nullable: true })
-  lte?: Date | undefined
+  lte?: Date | undefined;
 
   @NestJsGraphQL.Field(() => Date, { nullable: true })
-  gt?: Date | undefined
+  gt?: Date | undefined;
 
   @NestJsGraphQL.Field(() => Date, { nullable: true })
-  gte?: Date | undefined
+  gte?: Date | undefined;
 
   @NestJsGraphQL.Field(() => NestedDateTimeWithAggregatesFilter, { nullable: true })
-  not?: NestedDateTimeWithAggregatesFilter | undefined
+  not?: NestedDateTimeWithAggregatesFilter | undefined;
 
   @NestJsGraphQL.Field(() => NestedIntFilter, { nullable: true })
-  _count?: NestedIntFilter | undefined
+  _count?: NestedIntFilter | undefined;
 
   @NestJsGraphQL.Field(() => NestedDateTimeFilter, { nullable: true })
-  _min?: NestedDateTimeFilter | undefined
+  _min?: NestedDateTimeFilter | undefined;
 
   @NestJsGraphQL.Field(() => NestedDateTimeFilter, { nullable: true })
-  _max?: NestedDateTimeFilter | undefined
+  _max?: NestedDateTimeFilter | undefined;
 }

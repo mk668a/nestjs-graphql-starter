@@ -1,6 +1,6 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
-import { NestedIntNullableFilter } from './NestedIntNullableFilter.input'
-import { NestedStringNullableFilter } from './NestedStringNullableFilter.input'
+import * as NestJsGraphQL from "@nestjs/graphql";
+import { NestedIntNullableFilter } from "./NestedIntNullableFilter.input";
+import { NestedStringNullableFilter } from "./NestedStringNullableFilter.input";
 
 @NestJsGraphQL.InputType('NestedStringNullableWithAggregatesFilter', { isAbstract: true })
 export class NestedStringNullableWithAggregatesFilter {
@@ -8,41 +8,41 @@ export class NestedStringNullableWithAggregatesFilter {
   equals?: string | undefined;
 
   @NestJsGraphQL.Field(() => [String], { nullable: true })
-  in?: string[] | undefined
+  in?: string[] | undefined;
 
   @NestJsGraphQL.Field(() => [String], { nullable: true })
-  notIn?: string[] | undefined
+  notIn?: string[] | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  lt?: string | undefined
+  lt?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  lte?: string | undefined
+  lte?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  gt?: string | undefined
+  gt?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  gte?: string | undefined
+  gte?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  contains?: string | undefined
+  contains?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  startsWith?: string | undefined
+  startsWith?: string | undefined;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  endsWith?: string | undefined
+  endsWith?: string | undefined;
 
   @NestJsGraphQL.Field(() => NestedStringNullableWithAggregatesFilter, { nullable: true })
-  not?: NestedStringNullableWithAggregatesFilter | undefined
+  not?: NestedStringNullableWithAggregatesFilter | undefined;
 
   @NestJsGraphQL.Field(() => NestedIntNullableFilter, { nullable: true })
-  _count?: NestedIntNullableFilter | undefined
+  _count?: NestedIntNullableFilter | undefined;
 
   @NestJsGraphQL.Field(() => NestedStringNullableFilter, { nullable: true })
-  _min?: NestedStringNullableFilter | undefined
+  _min?: NestedStringNullableFilter | undefined;
 
   @NestJsGraphQL.Field(() => NestedStringNullableFilter, { nullable: true })
-  _max?: NestedStringNullableFilter | undefined
+  _max?: NestedStringNullableFilter | undefined;
 }

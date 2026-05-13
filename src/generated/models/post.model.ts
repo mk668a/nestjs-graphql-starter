@@ -1,28 +1,28 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
-import { Users } from '../models/users.model'
+import * as NestJsGraphQL from "@nestjs/graphql";
+import { User } from "../models/user.model";
 
 @NestJsGraphQL.ObjectType('Post', { isAbstract: true })
 export class Post {
   @NestJsGraphQL.Field(() => String)
-  id!: string
+  id!: string;
 
   @NestJsGraphQL.Field(() => Date)
-  createdAt!: Date
+  createdAt!: Date;
 
   @NestJsGraphQL.Field(() => Date)
-  updatedAt!: Date
+  updatedAt!: Date;
 
   @NestJsGraphQL.Field(() => Boolean)
-  published!: boolean
+  published!: boolean;
 
   @NestJsGraphQL.Field(() => String)
-  title!: string
+  title!: string;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  content?: string | null
+  content?: string | null;
 
-  author?: Users | null
+  author?: User | null;
 
   @NestJsGraphQL.Field(() => String, { nullable: true })
-  authorId?: string | null
+  authorId?: string | null;
 }

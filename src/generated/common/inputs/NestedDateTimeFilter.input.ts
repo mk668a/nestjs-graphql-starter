@@ -1,4 +1,4 @@
-import * as NestJsGraphQL from '@nestjs/graphql'
+import * as NestJsGraphQL from "@nestjs/graphql";
 
 @NestJsGraphQL.InputType('NestedDateTimeFilter', { isAbstract: true })
 export class NestedDateTimeFilter {
@@ -6,23 +6,23 @@ export class NestedDateTimeFilter {
   equals?: Date | undefined;
 
   @NestJsGraphQL.Field(() => [Date], { nullable: true })
-  in?: Date[] | undefined
+  in?: Date[] | undefined;
 
   @NestJsGraphQL.Field(() => [Date], { nullable: true })
-  notIn?: Date[] | undefined
+  notIn?: Date[] | undefined;
 
   @NestJsGraphQL.Field(() => Date, { nullable: true })
-  lt?: Date | undefined
+  lt?: Date | undefined;
 
   @NestJsGraphQL.Field(() => Date, { nullable: true })
-  lte?: Date | undefined
+  lte?: Date | undefined;
 
   @NestJsGraphQL.Field(() => Date, { nullable: true })
-  gt?: Date | undefined
+  gt?: Date | undefined;
 
   @NestJsGraphQL.Field(() => Date, { nullable: true })
-  gte?: Date | undefined
+  gte?: Date | undefined;
 
   @NestJsGraphQL.Field(() => NestedDateTimeFilter, { nullable: true })
-  not?: NestedDateTimeFilter | undefined
+  not?: NestedDateTimeFilter | undefined;
 }
